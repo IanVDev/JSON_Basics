@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let BASE_URL = "https://jsonplaceholder.typicode.com"
-    
-    
+//    let BASE_URL = "https://jsonplaceholder.typicode.com" /users
+    let BASE_URL = "https://swapi.co/api/"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,8 +25,7 @@ class ViewController: UIViewController {
     
     @IBAction func getButtonTapped(_ sender: UIButton) {
         
-        guard let url = URL(string: BASE_URL + "/users") else { return }
-        
+        guard let url = URL(string: BASE_URL + "people/1") else { return }
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
             if let response = response {
