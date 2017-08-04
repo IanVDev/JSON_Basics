@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-//    let BASE_URL = "https://jsonplaceholder.typicode.com" /users
-    let BASE_URL = "https://swapi.co/api/"
-
+    let BASE_URL = "https://jsonplaceholder.typicode.com"
+    //    let BASE_URL = "https://swapi.co/api/"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     @IBAction func getButtonTapped(_ sender: UIButton) {
         
-        guard let url = URL(string: BASE_URL + "people/1") else { return }
+        guard let url = URL(string: BASE_URL + "/users") else { return }
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
             if let response = response {
@@ -34,13 +34,24 @@ class ViewController: UIViewController {
             if let data = data {
                 print(data)
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options:[])
+                    let json = try JSONSerialization.jsonObject(with: data, options:.mutableContainers)
                     print(json)
+                    guard let array = json as? [Any] else { return }
+                    for user in array {
+                        guard let userDict = user as? [String: Any] else { return }
+                        guard let userName = userDict ["name"] as? String else { return }
+                        guard let userEmail = userDict ["email"] as? String else { return }
+                        guard let userCompany = userDict ["company"] as? [String : String] else { return }
+                        print(userName)
+                        print(userEmail)
+                        print(userCompany)
+                    
+                    }
                 }catch{
                     print(error)
                 }
             }
-        }.resume()
+            }.resume()
     }
     
     @IBAction func postButtonTapped(_ sender: UIButton) {
@@ -70,10 +81,10 @@ class ViewController: UIViewController {
             }
             
             }.resume()
-
+        
     }
     
-
+    
     
     
     

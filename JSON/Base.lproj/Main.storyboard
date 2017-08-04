@@ -57,5 +57,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Segunda View Controller-->
+        <scene sceneID="PBt-F2-5wk">
+            <objects>
+                <viewController id="EXG-YB-t7U" customClass="SegundaViewController" customModule="JSON" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cAf-3x-SF7"/>
+                        <viewControllerLayoutGuide type="bottom" id="JHN-Zi-pxl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y6h-ak-0uS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzE-0b-dSi">
+                                <rect key="frame" x="16" y="28" width="265" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="Uiy-eu-QcV"/>
+                                    <constraint firstAttribute="height" constant="31" id="o0m-TA-JGP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hzE-0b-dSi" firstAttribute="leading" secondItem="Y6h-ak-0uS" secondAttribute="leadingMargin" id="JYz-OC-fhX"/>
+                            <constraint firstItem="hzE-0b-dSi" firstAttribute="top" secondItem="cAf-3x-SF7" secondAttribute="bottom" constant="8" id="oU1-IB-2dP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="hzE-0b-dSi" id="JN1-HJ-SGv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m4s-Si-zCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005.6" y="111.99400299850076"/>
+        </scene>
     </scenes>
 </document>
